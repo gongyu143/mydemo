@@ -1,0 +1,30 @@
+server:
+  servlet:
+    context-path: /demo
+
+spring:
+  profiles:
+    active: dev
+
+mybatis:
+  type-aliases-package: cn.bywin.business.bean
+  mapper-locations: classpath:mapper/*.xml
+  # 设置 mapper 接口对应 XMl 配置文件的路径
+  #mapper-locations: classpath*:mybatis/mapper/**/*.xml
+  #config-location: classpath:mybatis/mybatis-config.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    call-setters-on-nulls: true
+
+# 分页
+pagehelper:
+  #  helperDialect: mysql
+  # 当pagenum<1时 空列表
+  reasonable: false
+  offsetAsPageNum: true
+  # 每页数据数量为0时查询所有数据
+  pageSizeZero: true
+  # 开启参数传递分页参数
+  supportMethodsArguments: true
+  # 修改分页字段名
+  params: pageNum=pageNum;pageSize=pageSize;
