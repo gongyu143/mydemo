@@ -30,8 +30,7 @@ public class MyController {
 
     @GetMapping("/q")
     @Operation(summary = "分页查询")
-    public Object query(UserParam param) {
-
+    public Response query(UserParam param) {
         List<UserDo> all = myService.getAll(param);
         PageResult pageResult = new PageResult(all);
         return Response.success(pageResult,pageResult.getTotal().intValue());

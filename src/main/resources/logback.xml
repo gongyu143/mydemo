@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration  scan="true" scanPeriod="30 seconds" >
+	<property name="LOG_HOME" value="./logs/"/>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>
+				[%date{yyyy-MM-dd HH:mm:ss.SSS}] %X{logthreadId} %-5level %logger.%M\(%line\) - %msg%n
+			</Pattern>
+		</layout>
+	</appender>
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>${LOG_HOME}/federal-%d{yyyy-MM-dd}.%i.txt</fileNamePattern>
+			<!-- each file should be at most 10MB, keep 31 days worth of history, but at most 10GB -->
+			<maxFileSize>100MB</maxFileSize>
+			<maxHistory>31</maxHistory>
+			<totalSizeCap>10GB</totalSizeCap>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>
+				[%date{yyyy-MM-dd HH:mm:ss.SSS}] %X{logthreadId} %-5level %logger.%M\(%line\) - %msg%n
+			</Pattern>
+		</layout>
+	</appender>
+		
+	<root level="INFO">
+		<appender-ref ref="STDOUT"/>
+		<appender-ref ref="FILE" />
+	</root>
+
+	<logger name="springfox.documentation.spring.web" level="ERROR" additivity="false">
+		<appender-ref ref="STDOUT"/>
+		<appender-ref ref="FILE" />
+	</logger>
+
+	<logger name="org.jasig.cas.client.configuration" level="ERROR" additivity="false">
+		<appender-ref ref="STDOUT"/>
+		<appender-ref ref="FILE" />
+	</logger>
+
+	<logger name="com.gongyu.mydemo.controller" level="DEBUG" additivity="false">
+		<appender-ref ref="STDOUT"/>
+		<appender-ref ref="FILE" />
+	</logger>
+
+	<logger name="com.gongyu.mydemo.dao" level="DEBUG" additivity="false">
+		<appender-ref ref="STDOUT"/>
+		<appender-ref ref="FILE" />
+	</logger>
+
+	<logger name="springfox.documentation.swagger.readers.operation.OperationImplicitParameterReader" level="ERROR" additivity="false">
+		<appender-ref ref="STDOUT"/>
+		<appender-ref ref="FILE" />
+	</logger>
+
+</configuration>

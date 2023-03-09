@@ -4,7 +4,14 @@ server:
 
 spring:
   profiles:
-    active: dev
+    active: test
+
+logging:
+  level:
+    io.swagger.models.parameters.AbstractSerializableParameter: error
+    org.springframework.web: INFO
+  config: classpath:logback.xml
+
 
 mybatis:
   type-aliases-package: cn.bywin.business.bean
