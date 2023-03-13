@@ -38,7 +38,7 @@ public class MyController {
 
     @PostMapping("/add")
     @Operation(summary = "添加")
-    public Response query(@Validated @RequestBody UserDo user) {
+    public Response query(@RequestBody @Validated UserDo user) {
         myService.add(user);
         return Response.success();
     }
