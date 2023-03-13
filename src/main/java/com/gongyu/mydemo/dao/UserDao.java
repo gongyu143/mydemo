@@ -19,4 +19,6 @@ import java.util.List;
 public interface UserDao {
 
     List<UserDo> getAll(UserParam param);
+
+    int add(UserDo userDo);
 }

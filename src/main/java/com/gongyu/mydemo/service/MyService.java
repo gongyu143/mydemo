@@ -14,4 +14,6 @@ import java.util.List;
 public interface MyService {
 
     List<UserDo> getAll(UserParam param);
+
+    Object add(UserDo userDo);
 }

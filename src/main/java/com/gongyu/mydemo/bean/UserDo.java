@@ -6,6 +6,8 @@ import lombok.Data;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
@@ -31,6 +33,7 @@ public class UserDo {
 
     @ApiModelProperty(value = "姓名", hidden = false, example = "")
     @Column(name = "name")
+    @NotNull(message = "不能为空")
     private String name;
 
     @ApiModelProperty(value = "年龄", hidden = false, example = "")

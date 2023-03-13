@@ -11,4 +11,10 @@
         </where>
     </select>
 
+    <insert id="add" parameterType="com.gongyu.mydemo.bean.UserDo">
+        insert into user(ts,id,name,age,remark)
+        values(#{ts},#{id},#{name},#{age},#{remark})
+
+    </insert>
+
 </mapper>
