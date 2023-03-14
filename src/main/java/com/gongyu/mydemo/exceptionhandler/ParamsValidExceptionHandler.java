@@ -19,7 +19,7 @@ import java.util.Map;
  *
  **/
 
-@RestControllerAdvice()
+//@RestControllerAdvice()
 @Order(1)
 public class ParamsValidExceptionHandler {
     private static final Logger logger = LoggerFactory.getLogger(ParamsValidExceptionHandler.class);

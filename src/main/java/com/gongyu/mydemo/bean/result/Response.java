@@ -103,6 +103,8 @@ public class Response<T> implements Serializable {
         return failure(ResponseCode.FAILURE.getMessage());
     }
 
+
+
     /**
      * 失败操作, 携带默认数据
      */
