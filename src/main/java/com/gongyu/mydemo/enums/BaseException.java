@@ -25,10 +25,10 @@ public class BaseException extends RuntimeException {
         this.message = message;
     }
 
-    public BaseException(BaseStatus baseStatus){
+    public BaseException(BaseStatus baseStatus,Object... args){
         super(baseStatus.getMessage());
         this.code = baseStatus.getCode();
-        this.message = String.format(baseStatus.getMessage());
+        this.message = String.format(baseStatus.getMessage(),args);
     }
 
 

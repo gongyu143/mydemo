@@ -16,6 +16,7 @@ public enum ResponseCode implements BaseStatus {
      */
     SUCCESS(200, "操作成功"),
     BLANK(300,"不能为空哦"),
+    DEMO(20001,"测试例子%s"),
     /**
      * 失败
      */
