@@ -4,13 +4,18 @@ import com.gongyu.mydemo.bean.UserDo;
 import com.gongyu.mydemo.bean.page.PageResult;
 import com.gongyu.mydemo.bean.page.UserParam;
 import com.gongyu.mydemo.bean.result.Response;
+import com.gongyu.mydemo.enums.ApiIdempotent;
 import com.gongyu.mydemo.service.MyService;
+import com.gongyu.mydemo.service.token.TokenService;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -28,6 +33,13 @@ public class MyController {
     @Autowired
     MyService myService;
 
+    @Resource
+    private TokenService tokenService;
+
+    @Autowired
+    RedisTemplate redisTemplate;
+
+
     @GetMapping("/page")
     @Operation(summary = "分页查询")
     public Response query(UserParam param) {
@@ -44,6 +56,25 @@ public class MyController {
     }
 
 
+    @PostMapping("/get/token")
+    public String  getToken(){
+        String token = tokenService.createToken();
+        if (StringUtils.isNotEmpty(token)) {
+            return token;
+        }
+        return "";
+    }
 
+
+    @ApiIdempotent
+    @PostMapping("/test/Idempotence")
+    public String testIdempotence() {
+        String businessResult = myService.test();
+        if (StringUtils.isNotEmpty(businessResult)) {
+
+            return businessResult;
+        }
+        return "";
+    }
 
 }
