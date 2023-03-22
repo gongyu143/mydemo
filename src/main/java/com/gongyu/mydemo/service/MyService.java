@@ -16,4 +16,6 @@ public interface MyService {
     List<UserDo> getAll(UserParam param);
 
     Object add(UserDo userDo);
+
+    String test();
 }

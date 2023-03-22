@@ -17,6 +17,10 @@ public enum ResponseCode implements BaseStatus {
     SUCCESS(200, "操作成功"),
     BLANK(300,"不能为空哦"),
     DEMO(20001,"测试例子%s"),
+    TOKEN_FAIL(20002,"token不存在"),
+    REPETITIVE_OPERATION(20003,"option"),
+
+
     /**
      * 失败
      */

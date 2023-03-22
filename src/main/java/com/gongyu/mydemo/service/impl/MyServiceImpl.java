@@ -55,4 +55,11 @@ public class MyServiceImpl implements MyService {
         userDao.add(userDo);
         return Response.success();
     }
+
+    @Override
+    public String test() {
+        return "a";
+    }
+
+
 }
