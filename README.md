@@ -1,3 +1,3 @@
-# mydemo
-springboot demo
+# springboot demo
+统一返回值，监听器，拦截器，接口幂等性....
 闲来无事 随便写写一个项目demo，欢迎大佬前来指点
