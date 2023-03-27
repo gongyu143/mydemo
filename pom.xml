@@ -57,7 +57,6 @@
         </dependency>
 
         <!--        日志-->
-
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>log4j-over-slf4j</artifactId>
@@ -127,6 +126,14 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.9</version>
         </dependency>
+
+        <!--  远程接口调用     -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>3.0.7</version>
+        </dependency>
+
 
         <!-- 文件流操作 -->
         <dependency>

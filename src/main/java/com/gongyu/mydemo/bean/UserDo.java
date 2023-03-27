@@ -2,6 +2,7 @@ package com.gongyu.mydemo.bean;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -57,4 +58,5 @@ public class UserDo {
     @ApiModelProperty(value = "添加时间", hidden = false, example = "")
     @Column(name = "gmt_create")
     private LocalDateTime gmtCreate;
+
 }

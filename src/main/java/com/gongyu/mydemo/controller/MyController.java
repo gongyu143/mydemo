@@ -4,6 +4,7 @@ import com.gongyu.mydemo.bean.UserDo;
 import com.gongyu.mydemo.bean.page.PageResult;
 import com.gongyu.mydemo.bean.page.UserParam;
 import com.gongyu.mydemo.bean.result.Response;
+import com.gongyu.mydemo.component.FeignDemo;
 import com.gongyu.mydemo.enums.ApiIdempotent;
 import com.gongyu.mydemo.service.MyService;
 import com.gongyu.mydemo.service.token.TokenService;
@@ -30,14 +31,29 @@ import java.util.List;
 @Api(tags = "demo")
 public class MyController {
 
-    @Autowired
-    MyService myService;
+    private final MyService myService;
+    private final TokenService tokenService;
+    private final RedisTemplate redisTemplate;
+    private final FeignDemo feignDemo;
 
-    @Resource
-    private TokenService tokenService;
-
     @Autowired
-    RedisTemplate redisTemplate;
+    public MyController(MyService myService,
+                 TokenService tokenService,
+                 RedisTemplate redisTemplate,
+                        FeignDemo feignDemo) {
+        this.myService = myService;
+        this.tokenService = tokenService;
+        this.redisTemplate = redisTemplate;
+        this.feignDemo = feignDemo;
+    }
+
+    @GetMapping("/user")
+    @Operation(summary = "分页查询")
+    public Response user() {
+        String user = feignDemo.getUser();
+        return Response.success(user);
+    }
+
 
 
     @GetMapping("/page")
