@@ -19,6 +19,7 @@ public enum ResponseCode implements BaseStatus {
     DEMO(20001,"测试例子%s"),
     TOKEN_FAIL(20002,"token不存在"),
     REPETITIVE_OPERATION(20003,"option"),
+    FILE_PARSE_ERROR(20004,"%s"),
 
 
     /**
