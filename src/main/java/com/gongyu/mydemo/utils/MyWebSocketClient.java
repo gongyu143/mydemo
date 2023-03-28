@@ -113,7 +113,6 @@ public class MyWebSocketClient extends WebSocketClient {
             sc.init(null, trustAllCerts, new java.security.SecureRandom());
             SSLSocketFactory factory = sc.getSocketFactory();
             appClient.setSocketFactory(factory);
-//            appClient.setWebSocketFactory(new DefaultSSLWebSocketClientFactory(sc));
         } catch (Exception e) {
             e.printStackTrace();
         }

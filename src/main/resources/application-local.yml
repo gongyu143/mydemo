@@ -6,6 +6,10 @@ path:
 url: www.baidu.com
 
 spring:
+  elasticsearch:
+    rest:
+      uris:
+
   #1.jdbc config
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -14,7 +18,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     jdbc-url: jdbc:mysql://localhost:3306/mydemo?characterEncoding=utf8&useOldAliasMetadataBehavior=true&allowMultiQueries=true&useSSL=false
     username: root
-    password: ****
+    password: wenxue
     initialSize: 5
     minIdle: 3
     maxActive: 8

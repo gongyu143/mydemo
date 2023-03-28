@@ -21,8 +21,6 @@ public class UserUtil {
 
     private UserUtil() {}
 
-    @Value("${url}")
-    private String url;
 
     public static final String url_1 = "www.baidu.com";
     public String appadd() {
