@@ -19,14 +19,14 @@ public class ImageController {
 
     @GetMapping(value = "/img",produces = MediaType.IMAGE_JPEG_VALUE)
     public byte[] getImage() throws Exception {
-        BufferedImage bufferedImage = ImageIO.read(new FileInputStream(new File("D:/test/2.jpg")));
+        BufferedImage bufferedImage = ImageIO.read(new FileInputStream(new File("D:/alink/model/tree.png")));
         ByteArrayOutputStream out = new ByteArrayOutputStream();
-        ImageIO.write(bufferedImage, "jpeg", out);
+        ImageIO.write(bufferedImage, "png", out);
         return out.toByteArray();
     }
 
     @GetMapping(value = "/imgs",produces = MediaType.IMAGE_PNG_VALUE)
     public BufferedImage getImages() throws Exception {
-        return ImageIO.read(new FileInputStream(new File("D:/test/2.jpg")));
+        return ImageIO.read(new FileInputStream(new File("D:/alink/model/tree.png")));
     }
 }

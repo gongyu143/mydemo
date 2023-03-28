@@ -14,6 +14,11 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
+/**
+ * @author wengwx
+ * @date 2023/3/22 
+ * @des  注解拦截器
+ */
 
 
 @Component
@@ -45,7 +50,8 @@ public class ApiIdempotentInterceptor implements HandlerInterceptor {
         ApiIdempotent methodAnnotation = method.getAnnotation(ApiIdempotent.class);
         if (methodAnnotation != null) {
             try {
-                return tokenService.checkToken(request);// 幂等性校验, 校验通过则放行, 校验失败则抛出异常, 并通过统一异常处理返回友好提示
+                // 幂等性校验, 校验通过则放行, 校验失败则抛出异常, 并通过统一异常处理返回友好提示
+                return tokenService.checkToken(request);
             }catch (Exception ex){
                throw ex;
             }
