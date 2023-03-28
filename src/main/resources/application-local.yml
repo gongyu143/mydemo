@@ -1,6 +1,10 @@
 server:
   port: 8080
 
+path:
+  a: E:\\demo\\a.doc
+url: www.baidu.com
+
 spring:
   #1.jdbc config
   datasource:
@@ -10,7 +14,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     jdbc-url: jdbc:mysql://localhost:3306/mydemo?characterEncoding=utf8&useOldAliasMetadataBehavior=true&allowMultiQueries=true&useSSL=false
     username: root
-    password: wenxue
+    password: ****
     initialSize: 5
     minIdle: 3
     maxActive: 8
@@ -29,8 +33,8 @@ spring:
 
 
     redis:
-      host: redis
-      port: 31501
+      host: localhost
+      port: 3306
       #password: by321qaz
       database: 0
       timeout: 60s  # 数据库连接超时时间，2.0 中该参数的类型为Duration，这里在配置的时候需要指明单位
