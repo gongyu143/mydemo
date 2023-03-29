@@ -14,6 +14,7 @@ import org.springframework.data.elasticsearch.core.query.CriteriaQuery;
 import org.springframework.data.elasticsearch.core.query.Query;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -31,14 +32,42 @@ public class UserController {
 
     @GetMapping("/add")
     public Object addUser() {
-        Object o = userService.addUser();
-        return Response.success(o,1);
+        return userService.addUser();
     }
 
     @GetMapping("/search")
     public Object searchUser() {
-        Object all = userService.findAll();
-        return Response.success(all,1);
+        List<User> userList = userService.findAll();
+        return Response.success(userList,userList.size());
     }
+
+    @GetMapping("/name")
+    public Object findByName(@RequestParam("name") String name) {
+        List<User> userList = userService.findByName(name);
+        return Response.success(userList,userList.size());
+    }
+
+    @GetMapping("/page")
+    public Object findByNamePage(@RequestParam("name") String name) {
+        List<User> userList = userService.findByNamePage(name);
+        return Response.success(userList,userList.size());
+    }
+
+    @GetMapping("/fuzzy")
+    public Object findFuzzy(@RequestParam("name") String name) {
+        List<User> userList = userService.findfuzzy(name);
+        return Response.success(userList,userList.size());
+    }
+
+    @GetMapping("/update")
+    public Object update() {
+        return userService.update();
+    }
+
+    @GetMapping("/delete")
+    public Object delete() {
+        return userService.delete();
+    }
+
 
 }
