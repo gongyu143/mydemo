@@ -6,9 +6,9 @@ path:
 url: www.baidu.com
 
 spring:
-  elasticsearch:
-    rest:
-      uris:
+#  elasticsearch:
+#    rest:
+#      uris: 192.168.96.96:31749
 
   #1.jdbc config
   datasource:

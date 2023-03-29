@@ -1,6 +1,6 @@
 package com.gongyu.mydemo.bean.es;
 
-import jdk.jfr.DataAmount;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,7 +25,7 @@ public class User {
     @Field(store = true, type = FieldType.Keyword)
     private String sName;
 
-    @Field(store = true, type = FieldType.Text, analyzer = "ik_smart")
+    @Field(store = true, type = FieldType.Text)
     //Text可以分词 ik_smart=粗粒度分词 ik_max_word 为细粒度分词
     private String sAddress;
 
@@ -36,9 +36,11 @@ public class User {
     private Date sCreateTime;
 
     @Field(type = FieldType.Keyword)
-    private String[] sCourseList; //数组类型 由数组中第一个非空值决定(这里数组和集合一个意思了)
+    private String[] sCourseList;
+    //数组类型 由数组中第一个非空值决定(这里数组和集合一个意思了)
 
     @Field(type = FieldType.Keyword)
-    private List<String> sColorList; //集合类型 由数组中第一个非空值决定
+    private List<String> sColorList;
+    //集合类型 由数组中第一个非空值决定
 
 }
