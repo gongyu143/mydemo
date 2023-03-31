@@ -10,7 +10,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     jdbc-url: jdbc:mysql://mysql:3306/algorithm?characterEncoding=utf8&useOldAliasMetadataBehavior=true&allowMultiQueries=true&useSSL=false
     username: root
-    password: *
+    password: 123456
     initialSize: 5
     minIdle: 3
     maxActive: 8

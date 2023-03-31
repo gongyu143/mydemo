@@ -57,7 +57,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findfuzzy(String name) {
-        return userRepository.findStudentBysNameContaining(name);
+//        return userRepository.findStudentBysNameContaining(name);
+//        return userRepository.findStudentBysNameLike(name);
+        return userRepository.findStudentBysNameContains(name);
     }
 
     @Override

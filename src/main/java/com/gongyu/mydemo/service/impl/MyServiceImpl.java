@@ -39,7 +39,7 @@ public class MyServiceImpl implements MyService {
 
     @Override
     public List<UserDo> getAll(UserParam param) {
-        Asserts.isTrue(false,ResponseCode.DEMO,"ceshiceshi");
+//        Asserts.isTrue(false,ResponseCode.DEMO,"ceshiceshi");
         return userDao.getAll(param);
     }
 

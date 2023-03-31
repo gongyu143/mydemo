@@ -18,9 +18,6 @@ import java.util.List;
 @Slf4j
 public class RiceTest {
 
-    @Value("${path.a}")
-    private String path;
-
     @Test
     void test() {
         System.out.println("早知道不学java了 ˚‧º·(˚ ˃̣̣̥᷄⌓˂̣̣̥᷅ )‧º·˚");
@@ -28,11 +25,15 @@ public class RiceTest {
 
     @Test
     void docTest() throws Exception {
-        File file = new File("E:/demo/a.doc");
+//        File file = new File("E:/demo/a.doc");
+//
+//        String lists = PoiUtils.getDocAllText(new FileInputStream(file));
+//        System.out.println("doc 输出： "+lists);
+        int port = 8080;
 
-        String lists = PoiUtils.getDocAllText(new FileInputStream(file));
-        System.out.println("doc 输出： "+lists);
-
+        String add = port+"/"+"/api/asb";
+        String replaceAll = add.trim().replaceAll("//", "/");
+        System.out.println(replaceAll);
     }
 
     @Test

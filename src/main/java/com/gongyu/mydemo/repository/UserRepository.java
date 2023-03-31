@@ -27,11 +27,25 @@ public interface UserRepository extends ElasticsearchRepository<User,String> {
     List<User> findStudentBysName(String name);
 
     /**
-     * 模糊查询
+     * 模糊查询 contains： 支持 "*xue*" 匹配 containing like  支持xue* 匹配
      * @param name
      * @return
      */
     List<User> findStudentBysNameContaining(String name);
+
+    /**
+     * 模糊查询
+     * @param name
+     * @return
+     */
+    List<User> findStudentBysNameLike(String name);
+
+    /**
+     * 模糊查询
+     * @param name
+     * @return
+     */
+    List<User> findStudentBysNameContains(String name);
 
     /**
      * 分页模糊查询
