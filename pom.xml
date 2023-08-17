@@ -126,7 +126,23 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.9</version>
         </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.23</version>
+        </dependency>
+        <!-- zxing生成二维码 -->
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.4.0</version>
+        </dependency>
 
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>javase</artifactId>
+            <version>3.4.0</version>
+        </dependency>
         <!--es-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
